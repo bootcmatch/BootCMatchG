@@ -25,7 +25,7 @@ The file *solve_example.cu* gives an example of how to use BootCMatchGPU. It tak
 
 An example:
 
-> ./src/bin/solve_example ../test_matrix/A1M-1hetero3D.mtx ../AMGsettings_base
+> ./src/bin/solve_example ../test_matrix/pi8grid6.mtx ../AMGsettings_base
 
 ### Configuration file
 
