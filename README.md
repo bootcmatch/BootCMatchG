@@ -11,13 +11,13 @@ The software requires:
 
 ### Compilation
 
-> cd BootCMatchGPU; make
+> cd src; make
 
 ## Solving 
 
 The file *solve_example.cu* gives an example of how to use BootCMatchGPU. It takes two inputs:
 
-> ./bin/solve_example [INPUT_MATRIX] [AMG_setting] 
+> ./src/bin/solve_example [INPUT_MATRIX] [AMG_setting] 
 
 *INPUT_MATRIX* is a sparse matrix in the *Matrix Market* format and *AMG_setting* is a configuration file (more information on that later).
 
@@ -25,7 +25,7 @@ The file *solve_example.cu* gives an example of how to use BootCMatchGPU. It tak
 
 An example:
 
-> ./bin/solve_example ../test_matrix/A1M-1hetero3D.mtx ../AMGsettings_base
+> ./src/bin/solve_example ../test_matrix/A1M-1hetero3D.mtx ../AMGsettings_base
 
 ### Configuration file
 
