@@ -16,7 +16,7 @@ INCLUDE = -I. -I$(NSPARSE_PATH)/inc -I$(CUB_PATH)
 BUILDDIR    := obj
 TARGETDIR   := bin
 
-$(TARGETDIR)/BCMGPU: main.cu $(OBJECTS) $(OBJECTS_AFSAI)
+$(TARGETDIR)/solve_example: solve_example.cu $(OBJECTS) $(OBJECTS_AFSAI)
 	$(CC) -o $@  $(INCLUDE) $(LIBS) $(GPU_ARCH) $(NVCC_FLAG) $^
 
 $(BUILDDIR)/vector.o: matrix/vector.cu

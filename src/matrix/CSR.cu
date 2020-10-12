@@ -1070,7 +1070,6 @@ CSR* CSRm::CSRCSR_product(cusparseHandle_t handle, CSR *A, CSR *B, bool transA, 
   CSR *C;
 #if MATRIX_MATRIX_MUL_TYPE == 0
   // cusparse
-  printf("cuSPARSE\n");
   //C = CSRCSR_product_cuSPARSE(handle, A, B, transA, transB);
   C = CSRCSR_product_nsparse(A, B);
 #elif MATRIX_MATRIX_MUL_TYPE == 1

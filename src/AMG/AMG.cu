@@ -7,8 +7,6 @@
 
 
 struct params{
-  const char *rhsfile;
-  const char *solfile;
   int solver_type;
   int max_hrc;
   double conv_ratio;
@@ -479,14 +477,7 @@ namespace AMG{
         exit(-1);
       }
 
-      inparms.rhsfile           = string_get_fp(fp);
-      if (strcmp(inparms.rhsfile,"NONE")==0) {
-        inparms.rhsfile=NULL;
-      }
-      inparms.solfile           = string_get_fp(fp);
-      if (strcmp(inparms.solfile,"NONE")==0) {
-        inparms.solfile=NULL;
-      }
+
       inparms.solver_type       = int_get_fp(fp);
       inparms.max_hrc           = int_get_fp(fp);
       inparms.conv_ratio        = double_get_fp(fp);
