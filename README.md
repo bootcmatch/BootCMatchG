@@ -17,7 +17,7 @@ The software requires:
 
 The file *solve_example.cu* gives an example of how to use BootCMatchGPU. It takes two inputs:
 
-> ./src/bin/solve_example [INPUT_MATRIX] [AMG_setting] 
+> ./bin/solve_example [INPUT_MATRIX] [AMG_setting] 
 
 *INPUT_MATRIX* is a sparse matrix in the *Matrix Market* format and *AMG_setting* is a configuration file (more information on that later).
 
@@ -25,7 +25,7 @@ The file *solve_example.cu* gives an example of how to use BootCMatchGPU. It tak
 
 An example:
 
-> ./src/bin/solve_example ../test_matrix/pi8grid6.mtx ../AMGsettings_base
+> ./bin/solve_example ../test_matrix/pi8grid6.mtx ../AMGsettings_base
 
 ### Configuration file
 
@@ -49,7 +49,7 @@ The are 15 parameters:
 * itnlim
 * rtol
 
-An example of configuration file is given in *./AMGsettings_base*
+An example of configuration file is given in */AMGsettings_base*
 
 ---
 How to cite our work:
