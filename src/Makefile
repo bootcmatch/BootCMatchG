@@ -1,10 +1,9 @@
-
+# CUB
+CUB_PATH = /home/pasquini/cub-1.7.4
 # NSPARSE
 NSPARSE_PATH = EXTERNAL/nsparse-master/cuda-c
 NSPARSE_GPU_ARCH = -arch=sm_60
 GPU_ARCH = -arch=sm_60
-# CUB
-CUB_PATH = /home/pasquini/cub-1.7.4
 #-------------------------------------------------
 CC = nvcc
 NVCC_FLAG = --compiler-options -Wall
