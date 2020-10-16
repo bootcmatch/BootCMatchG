@@ -1,6 +1,5 @@
 #pragma once
 
-#include "../SOLVER/LU.cu"
 #if AFSAI == 1
 #include "myAFSAI/afsai.h"
 #endif
