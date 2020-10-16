@@ -36,7 +36,7 @@ void GAMG_cycle(handles *h, int k, bootBuildData *bootamg_data, boot *boot_amg, 
   if(l == hrrc->num_levels){
     if(coarse_solver == 9){
       //Vector::copyTo(Xtent->val[l-1], Rhs->val[l-1]);
-      LU::solve(h->cusparse_h0, hrrc->LU, Xtent->val[l-1], Rhs->val[l-1]);
+      //LU::solve(h->cusparse_h0, hrrc->LU, Xtent->val[l-1], Rhs->val[l-1]);
     }else{
       // solve
       Xtent->val[l-1] = relax(h, amg_cycle->relaxnumber_coarse, l-1, hrrc, Rhs->val[l-1], coarse_solver, amg_cycle->relax_weight, Xtent->val[l-1], &FCG::context.Xtent_buffer_2->val[l-1]);

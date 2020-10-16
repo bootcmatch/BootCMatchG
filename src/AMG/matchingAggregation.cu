@@ -371,8 +371,7 @@ hierarchy* adaptiveCoarsening(handles *h, buildData *amg_data){
   AMG::Hierarchy::finalize_level(hrrch, level);
 
   if(amg_data->coarse_solver == 9){
-    LU_factor *luf = LU::setup(h->cusparse_h0, hrrch->A_array[level - 1]);
-    hrrch->LU = luf;
+    assert(0);
   }else{
     // in order to apply, to the coarsest matrix, the correct relax-preprocessing
     if(amg_data->coarse_solver != amg_data->CRrelax_type ){
