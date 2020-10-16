@@ -35,7 +35,7 @@ struct hierarchy{
   PRECOND **pre_array;
 #endif
 
-  LU_factor *LU;
+ // LU_factor *LU;
 
   itype num_levels; /* number of levels of the hierachy */
   vtype op_cmplx;  /* operator complexity of the hierarchy for V-cycle*/
