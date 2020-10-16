@@ -4,7 +4,7 @@ Sparse solvers are one of the building blocks of any technology for reliable and
 ### Dependencies and Requirements:
 
 The software requires:
-
+* CUDA >= 9.0
 * **[CUB](https://nvlabs.github.io/cub/)**: We test the code for the version: 1.7.4.
   * Install the software and setup the variable **CUB_PATH** in the BootCMatchG's Makefile: e.g., CUB_PATH = ./cub-1.7.4
 * **[NSPARSE](https://github.com/EBD-CREST/nsparse)**: We include in this repository a slightly modified version *NSPARSE* that supports CUDA > 9.0. This is located in *src/EXTERNAL/*
