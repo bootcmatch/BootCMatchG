@@ -15,22 +15,29 @@ INCLUDE = -I. -I$(NSPARSE_PATH)/inc -I$(CUB_PATH)
 BUILDDIR    := obj
 TARGETDIR   := bin
 
+
 $(TARGETDIR)/solve_example: solve_example.cu $(OBJECTS) $(OBJECTS_AFSAI)
+	mkdir -p $(TARGETDIR) 
 	$(CC) -o $@  $(INCLUDE) $(LIBS) $(GPU_ARCH) $(NVCC_FLAG) $^
 
 $(BUILDDIR)/vector.o: matrix/vector.cu
+	mkdir -p $(BUILDDIR) 
 	$(CC) -c -o $@ $(LIBS) $(INCLUDE) $(GPU_ARCH) $(NVCC_FLAG) $^
 
 $(BUILDDIR)/matrixIO.o: matrix/matrixIO.cu
+	mkdir -p $(BUILDDIR) 
 	$(CC) -c -o $@ $(LIBS) $(INCLUDE) $(GPU_ARCH) $(NVCC_FLAG) $^
 
 $(BUILDDIR)/CSR.o: matrix/CSR.cu
+	mkdir -p $(BUILDDIR) 
 	$(CC) -c -o $@ $(LIBS) $(INCLUDE) $(GPU_ARCH) $(NVCC_FLAG) $^
 
 $(BUILDDIR)/utils.o: utility/utils.cu
+	mkdir -p $(BUILDDIR) 
 	$(CC) -c -o $@ $(LIBS) $(INCLUDE) $(GPU_ARCH) $(NVCC_FLAG) $^
 
 $(BUILDDIR)/nsparse.o: $(NSPARSE_PATH)/src/kernel/kernel_spgemm_hash_d.cu
+	mkdir -p $(BUILDDIR) 
 	$(CC) -c -o $@ $(LIBS) $(INCLUDE) $(NSPARSE_GPU_ARCH) $^
 
 clean:
