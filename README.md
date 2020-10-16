@@ -1,5 +1,5 @@
 # BootCMatchGPU
-... small intro ....
+Sparse solvers are one of the building blocks of any technology for reliable and high-performance scientific and engineering computing. In this paper we present a software package which implements an efficient multigrid sparse solver running on Graphics Processing Units. The package is part of a soft- ware development project for sparse Linear Algebra computations on emergent HPC architectures involving a large research group working in many application projects over the last ten years.
 ## Installation
 ### Dependencies and Requirements:
 
@@ -7,7 +7,7 @@ The software requires:
 
 * **[CUB](https://nvlabs.github.io/cub/)**: We test the code for the version: 1.7.4.
   * Install the software and setup the variable **CUB_PATH** in the BootCMatchG's Makefile: e.g., CUB_PATH = ./cub-1.7.4
-* **[NSPARSE](https://github.com/EBD-CREST/nsparse)**: Install the software and setup the variable **NSPARSE_PATH** in the BootCMatchG's Makefile: e.g., NSPARSE_PATH = ./nsparse-master/cuda-c
+* **[NSPARSE](https://github.com/EBD-CREST/nsparse)**: We include in this repository a slightly modified version *NSPARSE* that supports CUDA > 9.0. This is located in *src/EXTERNAL/*
 
 ### Compilation
 
@@ -51,5 +51,15 @@ The are 15 parameters:
 
 An example of configuration file is given in *./AMGsettings_base*
 
-
-
+---
+How to cite our work:
+> @article{BERNASCHI2020102599, <br>
+title = "AMG based on compatible weighted matching for GPUs",<br>
+journal = "Parallel Computing",<br>
+volume = "92",<br>
+pages = "102599",<br>
+year = "2020",<br>
+issn = "0167-8191",<br>
+author = "Massimo Bernaschi and Pasqua D’Ambra and Dario Pasquini",<br>
+keywords = "AMG, Graph matching, GPU",<br>
+}
