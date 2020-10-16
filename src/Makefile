@@ -1,5 +1,6 @@
 # CUB
-CUB_PATH = /home/pasquini/cub-1.7.4
+#CUB_PATH = ${HOME}/cub-1.7.4
+CUB_PATH = 
 # NSPARSE
 NSPARSE_PATH = EXTERNAL/nsparse-master/cuda-c
 NSPARSE_GPU_ARCH = -arch=sm_60
@@ -17,6 +18,9 @@ TARGETDIR   := bin
 
 
 $(TARGETDIR)/solve_example: solve_example.cu $(OBJECTS) $(OBJECTS_AFSAI)
+ifndef CUB_PATH
+$(error CUB PATH must be set)
+endif
 	mkdir -p $(TARGETDIR) 
 	$(CC) -o $@  $(INCLUDE) $(LIBS) $(GPU_ARCH) $(NVCC_FLAG) $^
 
