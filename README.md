@@ -1,4 +1,4 @@
-# BootCMatchGPU
+# BootCMatchG
 Sparse solvers are one of the building blocks of any technology for reliable and high-performance scientific and engineering computing. In BootCMatchG we make available a recently proposed adaptive Algebraic MultiGrid (alpha-AMG) method for preconditioning algebraic linear systems Ax = b, where A is a symmetric positive definite (s.p.d.), large and sparse matrix. All the computational kernels for setup and application of the adaptive AMG method, as preconditioner of an efficient version of the Conjugate Gradent Krylov solver, were designed and tuned for accessing GPU global memory according to best practices of CUDA programming and for using the available computing resources in an effective way. To the best of our knowledge, this is the only adaptive AMG method currently available as public-domain software package and running on GPU.
 
 This is the software package described in the paper:
@@ -23,7 +23,7 @@ The software requires:
 
 ## Solving 
 
-The file *solve_example.cu* gives an example of how to use BootCMatchGPU. It takes two inputs:
+The file *solve_example.cu* gives an example of how to use BootCMatchG. It takes two inputs:
 
 > ./bin/solve_example [INPUT_MATRIX] [AMG_setting] 
 
