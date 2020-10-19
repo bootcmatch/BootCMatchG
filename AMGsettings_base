@@ -1,15 +1,14 @@
-0                   % solver_type: 0 multiplicative, 1 symmetrized multi., 2 additive; NB: Here put 0 for single AMG component
-1                   % max_hrc, in bootstrap AMG, max hierarchies; NB: Here put 1 for single AMG component
-0.8                 % desired convergence rate of the composite AMG; NB: This is not generally obtained if criterion on max_hrc is reached
-3                   % matchtype: 3 Suitor
-2                   % aggrsweeps; passi di aggregazione a coppie. 0, pairs; 1 double pairs ...
-0                   % aggr_type; 0 unsmoothed, 1 smoothed
-39                  % max_levels; max number of levels built for the single hierarchy
-0                   % cycle_type: 0-Vcycle, 1-Hcycle, 2-Wcycle
-4                   % 0 Jacobi, 4 L1-smoother
+0                   % solver_type: type of final AMG composition; 0 multiplicative, 1 symmetrized multi., 2 additive; NB: Here put 0 for single AMG component
+1                   % max_hrc: max number of hierarchies in the final bootstrap AMG; NB: Here put 1 for single AMG component
+0.8                 % rho: desired convergence rate of the composite AMG; NB: This is not generally obtained if criterion on max_hrc is reached
+2                   % aggrsweeps: pairwise aggregation steps; 1 for pairs; 2 for double pairs ...
+0                   % aggr_type: type of prolongation; 0 unsmoothed, 1 smoothed
+39                  % max_levels: max number of levels built for the single hierarchy
+0                   % cycle_type: 0-Vcycle, 1-Hcycle (V-cycle at odd levels and W at even levels), 2-Wcycle
+4                   % coarsest_solver_type: 0 Jacobi, 4 L1-smoother
 4                   % relax_type: 0 Jacobi, 4 L1-smoother
-20                  % relaxnumber_coarse
-1                   % prerelax_sweeps
-1                   % postrelax_sweeps
-200000              % itnlim
-1.e-6               % rtol
+20                  % relaxnumber_coarse: number of iterations for the coarsest solver
+1                   % prerelax_sweeps: number of pre-smoother iterations at the intermediate levels
+1                   % postrelax_sweeps: number of post-smoother iterations at the intermediate levels
+200000              % itnlim: maximum number of iterations for the solver
+1.e-6               % rtol: relative accuracy on the solution
