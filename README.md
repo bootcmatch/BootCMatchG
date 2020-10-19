@@ -1,5 +1,6 @@
 # BootCMatchGPU
-Sparse solvers are one of the building blocks of any technology for reliable and high-performance scientific and engineering computing. In this paper we present a software package which implements an efficient multigrid sparse solver running on Graphics Processing Units. The package is part of a soft- ware development project for sparse Linear Algebra computations on emergent HPC architectures involving a large research group working in many application projects over the last ten years.
+Sparse solvers are one of the building blocks of any technology for reliable and high-performance scientific and engineering computing. In BootCMatchG we make available a recently proposed adaptive Algebraic MultiGrid (alpha-AMG) method for preconditioning and solving algebraic linear systems Ax = b, where A is a symmetric positive definite (s.p.d.), large and sparse matrix. All the computational kernels for setup and application of the adaptive AMG method were designed and tuned for accessing GPU global memory according to best practices of CUDA programming and for using the available computing resources in an effective way. To the best of our knowledge, this is the only adaptive AMG method currently available as public-domain software package.
+
 ## Installation
 ### Dependencies and Requirements:
 
@@ -33,21 +34,20 @@ The configuration file defines the preconditioning and solving procedure.
 
 The are 15 parameters:
 
-* solver_type: 0 multiplicative, 1 symmetrized multi., 2 additive; NB: Here put 0 for single AMG component
-* max_hrc, in bootstrap AMG, max hierarchies; NB: Here put 1 for single AMG component
-* desired convergence rate of the composite AMG; NB: This is not generally obtained if criterion on max_hrc is reached
-* matchtype: 3 Suitor
-* aggrsweeps; passi di aggregazione a coppie. 0, pairs; 1 double pairs ...
-* aggr_type; 0 unsmoothed, 1 smoothed
-* max_levels; max number of levels built for the single hierarchy
-* cycle_type: 0-Vcycle, 1-Hcycle, 2-Wcycle
+* solver_type: type of final AMG composition; 0 multiplicative, 1 symmetrized multi., 2 additive; NB: Here put 0 for single AMG component
+* max_hrc: max number of hierarchies in the final bootstrap AMG; NB: Here put 1 for single AMG component
+* rho: desired convergence rate of the composite AMG; NB: This is not generally obtained if criterion on max_hrc is reached
+* aggrsweeps: pairwise aggregation steps; 1 for pairs; 2 for double pairs ...
+* aggr_type: type of prolongation; 0 unsmoothed, 1 smoothed
+* max_levels: max number of levels built for the single hierarchy
+* cycle_type: 0-Vcycle, 1-Hcycle (V-cycle at odd levels and W at even levels), 2-Wcycle
 * coarsest_solver_type: 0 Jacobi, 4 L1-smoother
 * relax_type: 0 Jacobi, 4 L1-smoother
-* relaxnumber_coarse
-* prerelax_sweeps
-* postrelax_sweeps
-* itnlim
-* rtol
+* relaxnumber_coarse: number of iterations for the coarsest solver
+* prerelax_sweeps: number of pre-smoother iterations at the intermediate levels
+* postrelax_sweeps: number of post-smoother iterations at the intermediate levels
+* itnlim: maximum number of iterations for the solver
+* rtol: relative accuracy on the solution
 
 An example of configuration file is given in */AMGsettings_base*
 
