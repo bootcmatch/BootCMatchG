@@ -1,9 +1,22 @@
 #pragma once
 
+#include "../SOLVER/LU.cu"
 #if AFSAI == 1
 #include "myAFSAI/afsai.h"
 #endif
 
+
+void checkP(const char* p, int* V, int n, int v){
+	bool flag = false;
+	for(int i=0; i<n; i++){
+		if(V[i] == v)
+			flag = true;
+	}
+	if(flag)
+		return;
+	printf("ERROR: No parameter %d for %s\n", v, p);
+	exit(-1);
+}
 
 struct params{
   int solver_type;
@@ -35,7 +48,7 @@ struct hierarchy{
   PRECOND **pre_array;
 #endif
 
- // LU_factor *LU;
+  LU_factor *LU;
 
   itype num_levels; /* number of levels of the hierachy */
   vtype op_cmplx;  /* operator complexity of the hierarchy for V-cycle*/
@@ -478,15 +491,32 @@ namespace AMG{
 
 
       inparms.solver_type       = int_get_fp(fp);
+      int psp[3] = {0,1,2};
+      checkP("solver_type", psp, 3, inparms.solver_type);
+
       inparms.max_hrc           = int_get_fp(fp);
       inparms.conv_ratio        = double_get_fp(fp);
-      inparms.matchtype         = int_get_fp(fp);
-      inparms.aggrsweeps        = int_get_fp(fp) + 1;
+      inparms.matchtype         = 3;
+      inparms.aggrsweeps        = int_get_fp(fp);
+
       inparms.aggrtype          = int_get_fp(fp);
+      int pap[3] = {0,1};
+      checkP("aggrtype", pap, 2, inparms.aggrtype);
+
       inparms.max_levels        = int_get_fp(fp);
+
       inparms.cycle_type        = int_get_fp(fp);
+      int pct[3] = {0,1,2};
+      checkP("cycle_type", pct, 3, inparms.cycle_type);
+
+
       inparms.coarse_solver     = int_get_fp(fp);
+      int prt[2] = {0,4};
+      checkP("coarse_solver", prt, 2, inparms.coarse_solver);
+
       inparms.relax_type        = int_get_fp(fp);
+      checkP("relax_type", prt, 2, inparms.relax_type);
+
       inparms.relaxnumber_coarse= int_get_fp(fp);
       inparms.prerelax_sweeps   = int_get_fp(fp);
       inparms.postrelax_sweeps  = int_get_fp(fp);
@@ -502,7 +532,7 @@ namespace AMG{
       Eval::printMetaData("params;max_hrc", inparms.max_hrc, 0);
       Eval::printMetaData("params;conv_ratio", inparms.conv_ratio, 1);
       Eval::printMetaData("params;matchtype", inparms.matchtype, 0);
-      Eval::printMetaData("params;aggrsweeps", inparms.aggrsweeps - 1, 0);
+      Eval::printMetaData("params;aggrsweeps", inparms.aggrsweeps, 0);
       Eval::printMetaData("params;aggrtype", inparms.aggrtype, 0);
       Eval::printMetaData("params;max_levels", inparms.max_levels, 0);
       Eval::printMetaData("params;cycle_type", inparms.cycle_type, 0);
