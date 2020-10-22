@@ -1,6 +1,5 @@
 #pragma once
 
-#include "../SOLVER/LU.cu"
 #if AFSAI == 1
 #include "myAFSAI/afsai.h"
 #endif
@@ -48,7 +47,6 @@ struct hierarchy{
   PRECOND **pre_array;
 #endif
 
-  LU_factor *LU;
 
   itype num_levels; /* number of levels of the hierachy */
   vtype op_cmplx;  /* operator complexity of the hierarchy for V-cycle*/
