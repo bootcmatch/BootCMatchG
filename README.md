@@ -44,7 +44,7 @@ The are 15 parameters:
 * solver_type: type of final AMG composition; 0 multiplicative, 1 symmetrized multi., 2 additive; NB: Here put 0 for single AMG component
 * max_hrc: max number of hierarchies in the final bootstrap AMG; NB: Here put 1 for single AMG component
 * rho: desired convergence rate of the composite AMG; NB: This is not generally obtained if criterion on max_hrc is reached
-* aggrsweeps: pairwise aggregation steps; 1 for pairs; 2 for double pairs ...
+* aggrsweeps: pairwise aggregation steps; 1 for single step, 2 for pairs; 3 for double pairs ...
 * aggr_type: type of prolongation; 0 unsmoothed, 1 smoothed
 * max_levels: max number of levels built for the single hierarchy
 * cycle_type: 0-Vcycle, 1-Hcycle (V-cycle at odd levels and W at even levels), 2-Wcycle
