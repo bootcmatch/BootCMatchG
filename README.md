@@ -39,7 +39,7 @@ An example:
 
 The configuration file defines the preconditioning and solving procedure.
 
-The are 15 parameters:
+The are 14 parameters:
 
 * solver_type: type of final AMG composition; 0 multiplicative, 1 symmetrized multi., 2 additive; NB: Here put 0 for single AMG component
 * max_hrc: max number of hierarchies in the final bootstrap AMG; NB: Here put 1 for single AMG component
