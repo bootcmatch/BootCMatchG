@@ -60,7 +60,7 @@ An example of configuration file is given in */AMGsettings_base*
 
 ---
 How to cite our work:
-> @article{BERNASCHI2020102599, <br>
+> @article{BDP2020102599, <br>
 title = "AMG based on compatible weighted matching for GPUs",<br>
 journal = "Parallel Computing",<br>
 volume = "92",<br>
