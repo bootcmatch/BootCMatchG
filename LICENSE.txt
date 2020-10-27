@@ -1,0 +1,14 @@
+BootCMatchG
+Bootstrap AMG based on Compatible weighted Matching for GPUs, version 1.0
+(C) Copyright 2020
+                       
+				 Massimo Bernaschi	  IAC-CNR, IT
+				 Pasqua D'Ambra         IAC-CNR, IT
+                       Dario Pasquini         IAC-CNR and University of Rome “Sapienza”, IT
+Released under the MIT license
+http://opensource.org/licenses/mit-license.php
+
+==================
+
+Acknowledgement
+This project was partially supported by the EC under the Horizon 2020 Project: Energy Oriented Center of Excellence (EoCoE II): Toward Exascale for Energy, Project ID: 824158.
