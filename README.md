@@ -72,7 +72,7 @@ year = "2020",<br>
 issn = "0167-8191",<br>
 author = "Massimo Bernaschi and Pasqua D’Ambra and Dario Pasquini",<br>
 keywords = "AMG, Graph matching, GPU",<br>
-}
+}<br>
 > @article{BDP2020100041, <br>
 title = " BootCMatchG: An adaptive Algebraic MultiGrid linear solver for GPUs",<br>
 journal = "Software Impacts",<br>
