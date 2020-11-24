@@ -3,7 +3,7 @@ Sparse solvers are one of the building blocks of any technology for reliable and
 
 This is the software package described in the papers:
 1) M. Bernaschi, P. D’Ambra, D. Pasquini, AMG based on compatible weighted matching on GPUs, Parallel Computing. Vol. 92, 2020.     https://doi.org/10.1016/j.parco.2019.102599
-2) M. Bernaschi, P. D’Ambra, D. Pasquini, BootCMatchG: an Adaptive Algebraic MultiGrid Linear Solver for GPUs. Submitted
+2) M. Bernaschi, P. D’Ambra, D. Pasquini, BootCMatchG: an Adaptive Algebraic MultiGrid Linear Solver for GPUs.  Software Impacts. Available on Line 24 November 2020. https://doi.org/10.1016/j.simpa.2020.100041
 
 
 
@@ -72,4 +72,12 @@ year = "2020",<br>
 issn = "0167-8191",<br>
 author = "Massimo Bernaschi and Pasqua D’Ambra and Dario Pasquini",<br>
 keywords = "AMG, Graph matching, GPU",<br>
+}
+> @article{BDP2020100041, <br>
+title = " BootCMatchG: An adaptive Algebraic MultiGrid linear solver for GPUs",<br>
+journal = "Software Impacts",<br>
+year = "2020",<br>
+issn = "2665-9638",<br>
+author = "Massimo Bernaschi and Pasqua D’Ambra and Dario Pasquini",<br>
+keywords = "Adaptive AMG, GPU",<br>
 }
