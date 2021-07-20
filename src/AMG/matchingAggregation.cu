@@ -235,12 +235,8 @@ CSR* matchingAggregation(handles *h, buildData *amg_data, CSR *A, vector<vtype> 
 
       TIME::start();
 
-      if(i == 1){
-        //TODO special nsparse
-        *P = CSRm::CSRCSR_product(h->cusparse_h0, *P, Pi_, false, false);
-      }else{
-        *P = CSRm::CSRCSR_product(h->cusparse_h0, *P, Pi_, false, false);
-      }
+      *P = CSRm::CSRCSR_product(h->cusparse_h0, *P, Pi_, false, false);
+     
 
       TOTAL_MUL_TIME += TIME::stop();
 
