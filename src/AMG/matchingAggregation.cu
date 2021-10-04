@@ -152,7 +152,32 @@ void _make_P_row(itype n, itype* P_row){
 
 //####################################################################################
 
+#if false
+__global__
+void _aggregate_symmetric_step_two(stype n, vtype *P_val, itype *M, itype *markc, vtype *w, itype *nuns){
 
+  itype i = blockDim.x * blockIdx.x + threadIdx.x;
+
+  if(i >= n)
+    return;
+
+  if(markc[i] != -1)
+    return;
+
+  // only single vertex and no-good pairs reach this point
+  if( fabs(w[i]) > DBL_EPSILON ){
+    // good single
+    int nuns_local = atomicAdd(nuns, 1);
+    markc[i] = nuns_local;
+    P_val[i] = w[i] / fabs(w[i]);
+  }else{
+    // bad single
+    markc[i] = (*nuns)-1;
+    P_val[i] = 0.0;
+  }
+
+}
+#else
 CSR* matchingPairAggregation(CSR *A, vector<vtype> *w){
 
   itype n = A->n;
@@ -172,8 +197,8 @@ CSR* matchingPairAggregation(CSR *A, vector<vtype> *w){
   int* nuns_local = Scalar::getvalueFromDevice(nuns);
   Scalar::free(nuns);
 
-  gb = gb1d(n, make_P_BLOCKSIZE);
-  _make_P_row<<<gb.g, gb.b>>>(n, P->row);
+  gb = gb1d(n+1, make_P_BLOCKSIZE);
+  _make_P_row<<<gb.g, gb.b>>>(n+1, P->row);
 
   P->m = nuns_local[0];
 
@@ -181,6 +206,7 @@ CSR* matchingPairAggregation(CSR *A, vector<vtype> *w){
 
   return P;
 }
+#endif
 
 CSR* matchingAggregation(handles *h, buildData *amg_data, CSR *A, vector<vtype> **w, CSR **P, CSR **R){
 
